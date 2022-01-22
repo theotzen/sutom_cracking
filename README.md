@@ -6,9 +6,11 @@ SUTOM (`MOTUS[::-1]`) est un super jeu, indépendant est gratuit, reprenant les 
 
 
 ## Run it yourself
-git clone https://github.com/theotzen/sutom_cracking.git
-cd sutom_cracking
-python main.py
+`git clone` https://github.com/theotzen/sutom_cracking.git
+
+`cd sutom_cracking`
+
+`python main.py`
 
 
 https://sutom.nocle.fr
