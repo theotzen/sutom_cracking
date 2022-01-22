@@ -15,7 +15,7 @@ options = Options()
 options.add_argument('--headless')
 
 lexique = pd.read_excel(
-    '/Users/theodoreotzenberger/Downloads/Lexique383/Lexique383.xlsb')
+    './Lexique383.xlsb')
 
 lexique = lexique[['1_ortho', '8_freqlemlivres']].rename(
     columns={'1_ortho': 'mot', '8_freqlemlivres': 'freq'})
