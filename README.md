@@ -1,6 +1,8 @@
 # sutom_cracking
 Comment gagner à tous les coups au jeu quotidien SUTOM ? Comme ceci ! 
 
+![](gif_sutom.gif)
+
 ##
 SUTOM (`MOTUS[::-1]`) est un super jeu, indépendant et gratuit, reprenant les régles et codes de MOTUS. Tous les jours, venez tenter de déchiffrer le mot et battre le robot de theotzen ! 
 
