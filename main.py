@@ -37,17 +37,18 @@ for i in range(6):
         break
     print(grille_scd[i].lower())
     forbidden_scd = ut.get_forbidden_letters_from_html(all_html)
-    forbidden_scd = [letter.lower() for letter in forbidden_scd]
+    forbidden_scd = [ut.remove_accents(letter.lower())
+                     for letter in forbidden_scd]
     print(forbidden_scd)
     yellow_scd = ut.get_yellow_letters_from_html(all_html)
-    yellow_scd = [letter.lower() for letter in yellow_scd]
+    yellow_scd = [ut.remove_accents(letter.lower()) for letter in yellow_scd]
     print(yellow_scd)
 
     to_try = ut.get_first_word(ut.filter_results(ut.get_most_freq_res(ut.get_results(lexique, ut.create_total_query(
         yellow_scd, forbidden_scd, grille_scd[i].lower()))).to_frame(), already_seen))
     print(to_try)
 
-    ut.write_word(to_try.upper(), browser)
+    ut.write_word(ut.remove_accents(to_try).upper(), browser)
     already_seen.append(to_try)
 
 time.sleep(1)
