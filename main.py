@@ -27,9 +27,15 @@ already_seen = []
 
 for i in range(6):
     browser.get('https://sutom.nocle.fr/')
-    time.sleep(2)
+    time.sleep(1)
     html = browser.execute_script('return document.documentElement.outerHTML')
     all_html = bs(html, 'lxml')
+    rules = browser.find_element_by_xpath(
+        f"//a[@id='panel-fenetre-bouton-fermeture']")
+    try:
+        rules.click()
+    except:
+        pass
 
     grille_scd = ut.extract_grille(all_html)
     if grille_scd[i].lower() == '':
@@ -51,6 +57,9 @@ for i in range(6):
     ut.write_word(ut.remove_accents(to_try).upper(), browser)
     already_seen.append(to_try)
 
+time.sleep(1)
+browser.find_element_by_xpath(
+    f"//a[@id='configuration-stats-bouton']").click()
 time.sleep(1)
 browser.find_element_by_xpath(
     f"//a[@id='fin-de-partie-panel-resume-bouton']").click()

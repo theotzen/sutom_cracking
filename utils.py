@@ -123,7 +123,8 @@ def get_yellow_letters_from_html(all_html):
 
 
 def write_word(word, browser):
-    browser.get('https://sutom.nocle.fr/')
+    # browser.get('https://sutom.nocle.fr/')
+    time.sleep(0.5)
     for char in word:
         element = browser.find_element_by_xpath(
             f"//div[@data-lettre='{char}']")
