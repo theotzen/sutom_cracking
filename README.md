@@ -16,4 +16,5 @@ SUTOM (`MOTUS[::-1]`) est un super jeu, indépendant et gratuit, reprenant les r
 
 
 https://sutom.nocle.fr
+
 https://twitter.com/SUTOMrobot
