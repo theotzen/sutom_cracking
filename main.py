@@ -14,12 +14,24 @@ from selenium.webdriver.firefox.options import Options
 options = Options()
 options.add_argument('--headless')
 
+
+def lemme_ver(row):
+    if row['4_cgram'] == 'VER':
+        return row['3_lemme']
+    else:
+        return row['1_ortho']
+
+
 lexique = pd.read_excel(
     './Lexique383.xlsb')
+lexique['1_ortho'] = lexique.apply(lemme_ver, axis=1)
 
 lexique = lexique[['1_ortho', '8_freqlemlivres']].rename(
     columns={'1_ortho': 'mot', '8_freqlemlivres': 'freq'})
+print('relief' in list(lexique['mot']))
 lexique.dropna(axis=0, inplace=True)
+lexique.drop_duplicates(inplace=True)
+print(lexique.shape)
 
 browser = webdriver.Firefox()
 browser.set_window_size(1200, 900)

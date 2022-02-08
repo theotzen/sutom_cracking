@@ -80,6 +80,8 @@ def filter_results(res, already_seen: list):
 
 
 def get_first_word(filtered_results):
+    print(filtered_results)
+
     return filtered_results.iloc[0, 0]
 
 
