@@ -25,13 +25,16 @@ def lemme_ver(row):
 lexique = pd.read_excel(
     './Lexique383.xlsb')
 lexique['1_ortho'] = lexique.apply(lemme_ver, axis=1)
+# lexique = lexique[(lexique['4_cgram'] != 'VER') &
+# (lexique['4_cgram'] != 'ADJ')]
+lexique = lexique[lexique['4_cgram'] == 'NOM']
 
 lexique = lexique[['1_ortho', '8_freqlemlivres']].rename(
     columns={'1_ortho': 'mot', '8_freqlemlivres': 'freq'})
-print('relief' in list(lexique['mot']))
+
 lexique.dropna(axis=0, inplace=True)
 lexique.drop_duplicates(inplace=True)
-print(lexique.shape)
+
 
 browser = webdriver.Firefox()
 browser.set_window_size(1200, 900)
